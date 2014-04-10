@@ -1,23 +1,23 @@
-require 'minitest/autorun'
+require 'rspec/autorun'
 
-require_relative '../lib/decorator'
-require_relative '../lib/decorator/test/minitest'
+require_relative '../lib/simple_decorator'
+require_relative '../lib/simple_decorator/test/rspec'
 
-class SampleDecorator < Decorator; end
-class AnotherDecorator < Decorator; end
+class SampleDecorator < BaseDecorator; end
+class AnotherDecorator < BaseDecorator; end
 
-describe "decorator/test/minitest" do
+describe "simple_decorator/test/rspec" do
   describe "be_decorated" do
     it "should raise an error for an undecorated object" do
       undecorated_object = "double"
 
-      proc { undecorated_object.must_be_decorated }.must_raise(MiniTest::Assertion)
+      expect { undecorated_object.should be_decorated }.to raise_error
     end
 
     it "should not raise an error for a decorated object" do
       decorated_object = SampleDecorator.new("double")
 
-      decorated_object.must_be_decorated
+      decorated_object.should be_decorated
     end
   end
 
@@ -25,14 +25,14 @@ describe "decorator/test/minitest" do
     it "should raise an error for a object decorated with a wrong decorator" do
       decorated_object = AnotherDecorator.new("double")
 
-      proc { decorated_object.must_be_decorated_with(SampleDecorator) }
-        .must_raise(MiniTest::Assertion)
+      expect { decorated_object.should be_decorated_with(SampleDecorator) }
+        .to raise_error
     end
 
     it "should not raise an error for a object decorated with the right decorator" do
       decorated_object = SampleDecorator.new("double")
 
-      decorated_object.must_be_decorated_with(SampleDecorator)
+      decorated_object.should be_decorated_with(SampleDecorator)
     end
   end
 end

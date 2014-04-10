@@ -13,6 +13,6 @@ module MiniTest::Expectations
   infect_an_assertion :assert_decorated_with, :must_be_decorated_with, :reverse
 end
 
-class Decorator
+class BaseDecorator
   include ::MiniTest::Expectations
 end

@@ -1,4 +1,4 @@
-class Decorator < BasicObject
+class BaseDecorator < BasicObject
   def initialize(object)
     @object = object
   end

@@ -1,11 +1,11 @@
 require 'minitest/autorun'
 
-require_relative '../lib/decorator'
+require_relative '../lib/simple_decorator'
 
-class SampleDecorator < Decorator; end
-class AnotherDecorator < Decorator; end
+class SampleDecorator < BaseDecorator; end
+class AnotherDecorator < BaseDecorator; end
 
-describe Decorator do
+describe BaseDecorator do
   describe "#initialize" do
     it "should not accept no arguments" do
       assert_raises(ArgumentError) { SampleDecorator.new }

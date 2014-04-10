@@ -1,24 +1,24 @@
 Gem::Specification.new do |s|
-  s.name        = 'decorator'
-  s.version     = '0.0.1'
+  s.name        = 'simple_decorator'
+  s.version     = '0.0.2'
   s.license     = 'MIT'
   s.date        = '2014-04-09'
 
   s.summary     = 'Object decorator for Ruby.'
-  s.description = 'Decorator provides a simple way of decorating Ruby objects..'
+  s.description = 'SimpleDecorator provides a simple way of decorating Ruby objects..'
 
   s.authors     = ['Jonas Amundsen']
   s.email       = ['jonasba+gem@gmail.com']
 
   s.files       = %w[
-    lib/decorator/test/minitest.rb
-    lib/decorator/test/rspec.rb
-    lib/decorator.rb
+    lib/simple_decorator/test/minitest.rb
+    lib/simple_decorator/test/rspec.rb
+    lib/simple_decorator.rb
     test/
     Gemfile
     Gemfile.lock
     LICENSE
-    decorator.gemspec
+    simple_decorator.gemspec
   ]
 
   # Mabye one day
