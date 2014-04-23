@@ -137,4 +137,22 @@ describe GeoPosition do
       mongo_value.should == object_of_other_type
     end
   end
+
+  describe "#empty?" do
+    context "with non-nil lat and lon" do
+      it "should return false" do
+        coordinates = GeoPosition.new(lat: A28_LAT, lon: A28_LON)
+
+        coordinates.empty?.should be_false
+      end
+    end
+
+    context "with nil for lat or lon" do
+      it "should return true" do
+        coordinates = GeoPosition.new(lat: nil, lon: A28_LON)
+
+        coordinates.empty?.should be_true
+      end
+    end
+  end
 end

@@ -43,6 +43,10 @@ Please instantiate GeoPosition using a hash.
     }
   end
 
+  def empty?
+    @lat.nil? || @lon.nil?
+  end
+
   private
 
   def nil_or_float(value)
