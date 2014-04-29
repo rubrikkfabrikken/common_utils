@@ -1,0 +1,20 @@
+module FormtasticAngular
+  module Inputs
+    module Base
+      module Wrapping
+        def input_wrapping(&block)
+          template.content_tag(:li,
+                               [template.capture(&block), angular_error_template_html, hint_html].join("\n").html_safe,
+                               wrapper_html_options
+          )
+        end
+
+        def angular_error_template_html
+          error_class = options[:error_class] || builder.default_inline_error_class
+          template.content_tag(:p, "{{#{object_name}.errors.#{method}.join(', ')}}", :class => error_class,
+                               :'data-ng-show' => "#{object_name}.errors.#{method}.length > 0")
+        end
+      end
+    end
+  end
+end
