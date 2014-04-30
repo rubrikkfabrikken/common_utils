@@ -13,6 +13,12 @@ describe GeoPosition do
       end
     end
 
+    context "when given zero arguments" do
+      it "should not raise an error" do
+        expect { GeoPosition.new }.to_not raise_error
+      end
+    end
+
     context "when given one hash" do
       it "should initialize an instance of GeoPosition" do
         coordinates = GeoPosition.new(

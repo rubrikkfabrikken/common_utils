@@ -17,7 +17,7 @@ class GeoPosition
     if Hash === args.first
       @lat = nil_or_float(args.first[:lat])
       @lon = nil_or_float(args.first[:lon])
-    else
+    elsif args.length > 1
       raise <<-ERR.strip
 Implicit ordering of latitude and longitude is not allowed!
 
