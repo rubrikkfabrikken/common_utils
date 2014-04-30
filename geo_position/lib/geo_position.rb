@@ -36,12 +36,14 @@ Please instantiate GeoPosition using a hash.
   end
 
   # Converts an object of this instance into a database friendly value.
-  def mongoize
+  def as_json(*)
     {
-      'lat' => @lat,
-      'lon' => @lon
-    }
+        'lat' => @lat,
+        'lon' => @lon
+    } unless empty?
   end
+
+  alias_method :mongoize, :as_json
 
   def empty?
     @lat.nil? || @lon.nil?

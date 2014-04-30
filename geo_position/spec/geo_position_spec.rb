@@ -72,14 +72,30 @@ describe GeoPosition do
     end
   end
 
-  describe "#mongoize" do
-    it "should return a hash of lon and lat" do
-      coordinates = GeoPosition.new(lat: A28_LAT, lon: A28_LON)
+  describe "#as_json" do
+    context "when coordinates are not empty" do
+      it "should return a hash of lon and lat" do
+        coordinates = GeoPosition.new(lat: A28_LAT, lon: A28_LON)
 
-      coordinates.mongoize.should == {
-        'lat' => A28_LAT,
-        'lon' => A28_LON
-      }
+        coordinates.mongoize.should == {
+          'lat' => A28_LAT,
+          'lon' => A28_LON
+        }
+      end
+    end
+
+    context "when coordinates are empty" do
+      it "should return nil" do
+        coordinates = GeoPosition.new(lat: nil, lon: A28_LON)
+
+        coordinates.mongoize.should be_nil
+      end
+    end
+  end
+
+  describe "#mongoize" do
+    it 'should invoke #as_json and return its value' do
+
     end
   end
 
