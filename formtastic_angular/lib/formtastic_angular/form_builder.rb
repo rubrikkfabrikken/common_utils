@@ -2,10 +2,13 @@ module FormtasticAngular
   class FormBuilder < Formtastic::FormBuilder
     include FormtasticAngular::Helpers::InputHelper
 
-    def initialize(object_name, object, template, options)
-      options[:html][:'data-ng-submit'] = "$event.preventDefault(); #{object_name}_submit()"
-
+    def initialize(*args)
       super
+
+      options = args.find { |arg| Hash === arg }
+
+      options[:html] ||= {}
+      options[:html][:'data-ng-submit'] = "$event.preventDefault(); #{object_name}_submit()"
     end
   end
 end

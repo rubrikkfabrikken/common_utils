@@ -4,7 +4,7 @@ module FormtasticAngular
       def input(method, options = {})
         options.deep_merge!(
             :input_html => {
-                :'data-ng-model' => "#{@object_name}.#{method}"
+                :'data-ng-model' => "#{angular_friendly_object_name_with_index}.#{method}"
             }
         )
 
@@ -17,6 +17,20 @@ module FormtasticAngular
         else
           super
         end
+      end
+
+      private
+
+      def angular_friendly_object_name_with_index
+        if options.has_key?(:index)
+          "#{angular_friendly_object_name}[#{options[:index]}]"
+        else
+          angular_friendly_object_name
+        end
+      end
+
+      def angular_friendly_object_name
+        object_name.to_s.gsub(/\[|\]/, '[' => '.', ']' => '')
       end
     end
   end

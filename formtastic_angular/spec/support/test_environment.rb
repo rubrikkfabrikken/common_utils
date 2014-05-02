@@ -4,6 +4,8 @@ require 'rspec_tag_matchers'
 
 RSpec.configure do |config|
   config.include RspecTagMatchers
+  config.include CustomMacros
+  config.mock_with :rspec
 end
 
 require "action_controller/railtie"
@@ -15,10 +17,13 @@ module FormtasticTest
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
     config.active_support.deprecation = :stderr
-    config.eager_load = false
   end
 end
 FormtasticTest::Application.initialize!
 
 require 'rspec/rails'
 
+# Quick hack to avoid the 'Spec' deprecation warnings from rspec_tag_matchers
+module Spec
+  include RSpec
+end

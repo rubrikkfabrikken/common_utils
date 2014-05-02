@@ -2,7 +2,7 @@ module FormtasticAngular
   module Helpers
     module FormHelper
       def angular_form_for(record, options = {}, &block)
-        options.deep_merge!(
+        options.merge!(
             builder: FormBuilder
         )
 
