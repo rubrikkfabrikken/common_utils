@@ -11,16 +11,16 @@ Gem::Specification.new do |s|
   s.email       = ['jonasba+gem@gmail.com']
 
   s.files       = %w[
-    lib/formtastic_angular/engine.rb
-    lib/formtastic_angular/form_builder.rb
     lib/formtastic_angular/helpers/form_helper.rb
     lib/formtastic_angular/helpers/input_helper.rb
-    lib/formtastic_angular/helpers.rb
-    lib/formtastic_angular/inputs/base.rb
     lib/formtastic_angular/inputs/base/wrapping.rb
+    lib/formtastic_angular/inputs/base.rb
     lib/formtastic_angular/inputs/password_input.rb
     lib/formtastic_angular/inputs/string_input.rb
     lib/formtastic_angular/inputs/text_input.rb
+    lib/formtastic_angular/engine.rb
+    lib/formtastic_angular/form_builder.rb
+    lib/formtastic_angular/helpers.rb
     lib/formtastic_angular/inputs.rb
     lib/formtastic_angular.rb
     lib/locale/en.yml
@@ -40,7 +40,6 @@ Gem::Specification.new do |s|
     spec/helpers/inputs_helper_spec.rb
     spec/helpers/reflection_helper_spec.rb
     spec/helpers/semantic_errors_helper_spec.rb
-    spec/i18n_spec.rb
     spec/inputs/boolean_input_spec.rb
     spec/inputs/check_boxes_input_spec.rb
     spec/inputs/country_input_spec.rb
@@ -70,13 +69,14 @@ Gem::Specification.new do |s|
     spec/inputs/time_zone_input_spec.rb
     spec/inputs/url_input_spec.rb
     spec/inputs/with_options_spec.rb
-    spec/localizer_spec.rb
-    spec/spec_helper.rb
-    spec/spec.opts
     spec/support/custom_macros.rb
     spec/support/deferred_garbage_collection.rb
     spec/support/deprecation.rb
     spec/support/test_environment.rb
+    spec/i18n_spec.rb
+    spec/localizer_spec.rb
+    spec/spec_helper.rb
+    spec/spec.opts
     formtastic_angular.gemspec
     Gemfile
     Gemfile.lock
