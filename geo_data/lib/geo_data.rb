@@ -1,16 +1,17 @@
 require 'net/http'
-require 'active_support/configurable'
 
 require_relative 'geo_data/request'
 require_relative 'geo_data/response'
 
 module GeoData
-  include ActiveSupport::Configurable
+  class << self
+    attr_writer :username, :password, :request_url, :token_url
 
-  config_accessor :username,     &-> { ENV['GEODATA_USERNAME']     }
-  config_accessor :password,     &-> { ENV['GEODATA_PASSWORD']     }
-  config_accessor :request_url,  &-> { ENV['GEODATA_REQUEST_URLl'] }
-  config_accessor :token_url,    &-> { ENV['GEODATA_TOKEN_URL']    }
+    def username; @username || ENV['GEODATA_USERNAME'] end
+    def password; @password || ENV['GEODATA_PASSWORD'] end
+    def request_url; @request_url || ENV['GEODATA_REQUEST_URL'] end
+    def token_url; @token_url || ENV['GEODATA_TOKEN_URL'] end
+  end
 
   class << self
     def secret_token
