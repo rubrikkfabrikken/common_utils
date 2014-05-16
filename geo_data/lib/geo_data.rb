@@ -1,6 +1,5 @@
 require 'net/http'
 require 'active_support/configurable'
-require 'active_support/core_ext/hash/conversions'
 
 require_relative 'geo_data/request'
 require_relative 'geo_data/response'
