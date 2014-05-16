@@ -10,8 +10,8 @@ module GeoData
 
   config_accessor :username,     &-> { ENV['GEODATA_USERNAME']     }
   config_accessor :password,     &-> { ENV['GEODATA_PASSWORD']     }
-  config_accessor :request_url, &-> { ENV['GEODATA_REQUEST_URLl'] }
-  config_accessor :token_url,   &-> { ENV['GEODATA_TOKEN_URL']   }
+  config_accessor :request_url,  &-> { ENV['GEODATA_REQUEST_URLl'] }
+  config_accessor :token_url,    &-> { ENV['GEODATA_TOKEN_URL']    }
 
   class << self
     def secret_token
