@@ -9,16 +9,19 @@ module GeoData
       @params = params
     end
 
-    def perform
+    def build_request_url
       params_with_token = @params.merge(
           token: GeoData.secret_token,
           f: :json
       )
 
-      uri       = URI("#{GeoData.request_url}/#{@request_name}")
-      uri.query = URI.encode_www_form(params_with_token)
+      URI("#{GeoData.request_url}/#{@request_name}").tap do |uri|
+        uri.query = URI.encode_www_form(params_with_token)
+      end
+    end
 
-      Response.new(Net::HTTP.get_response(uri).body)
+    def perform
+      Response.new(Net::HTTP.get_response(build_request_url).body)
     end
   end
 end
