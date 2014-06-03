@@ -21,7 +21,15 @@ module GeoData
     end
 
     def perform
-      Response.new(Net::HTTP.get_response(build_request_url).body)
+      request_url = build_request_url
+
+      GeoData.log "Performing a GET request to #{request_url}"
+
+      raw_response = Net::HTTP.get_response(request_url).body
+
+      GeoData.log "Receieved the following response from GeoData: #{raw_response}"
+
+      Response.new(raw_response)
     end
   end
 end

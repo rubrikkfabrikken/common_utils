@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'geo_data'
-  s.version     = '0.0.3'
+  s.version     = '0.0.4'
   s.license     = 'MIT'
   s.date        = '2014-05-11'
 

@@ -56,3 +56,21 @@ and string indices.
 response[:currentVersion] # => 10.21
 response['currentVersion'] # => 10.21
 ```
+
+### Logging
+
+A logger can be configured, where log entries of type `info` will be posted.
+
+```ruby
+GeoData.logger = Logger.new(STDOUT)
+```
+
+The library can also be configured to use Rails' logger.
+
+```ruby
+YourApplication::Application.configure do
+  config.after_initialize do
+    GeoData.logger = Rails.logger
+  end
+end
+```
