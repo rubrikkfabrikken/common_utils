@@ -4,6 +4,7 @@ module FormtasticAngular
 
     autoload :Base
     autoload :PasswordInput
+    autoload :RadioInput
     autoload :StringInput
     autoload :TextInput
   end
