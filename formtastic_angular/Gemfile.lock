@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    formtastic_angular (0.0.4)
+    formtastic_angular (0.0.5)
       formtastic
 
 GEM

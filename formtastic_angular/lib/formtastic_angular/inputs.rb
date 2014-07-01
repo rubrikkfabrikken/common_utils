@@ -3,6 +3,7 @@ module FormtasticAngular
     extend ActiveSupport::Autoload
 
     autoload :Base
+    autoload :NumberInput
     autoload :PasswordInput
     autoload :RadioInput
     autoload :StringInput

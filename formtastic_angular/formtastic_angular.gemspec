@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'formtastic_angular'
-  s.version     = '0.0.4'
+  s.version     = '0.0.5'
   s.license     = 'MIT'
   s.date        = '2014-04-29'
 
@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
     lib/formtastic_angular/helpers/input_helper.rb
     lib/formtastic_angular/inputs/base/wrapping.rb
     lib/formtastic_angular/inputs/base.rb
+    lib/formtastic_angular/inputs/number_input.rb
     lib/formtastic_angular/inputs/password_input.rb
     lib/formtastic_angular/inputs/radio_input.rb
     lib/formtastic_angular/inputs/string_input.rb
